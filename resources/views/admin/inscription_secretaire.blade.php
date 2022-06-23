@@ -67,7 +67,6 @@
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8 ">Account pages
                     </h6>
                 </li>
-
                 <li class="nav-item ">
                     <a class="nav-link text-white " href=" {{ 'logout' }} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
@@ -96,19 +95,21 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 ">
                         <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark "
                                 href="javascript:; ">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/Accueil</li>
+                        <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/<a
+                                href=" {{ route('admin.index') }} ">Accueil</a> /Espace Secrétaire</li>
+
                     </ol>
-                    <a href=" {{'admin'}} ">
-                        <h6 class="font-weight-bolder mb-0 ">Accueil</h6>
+                    <a href=" {{ 'gestion' }} ">
+                        <h6 class="font-weight-bolder mb-0 ">Espace secrétaires</h6>
                     </a>
                 </nav>
-                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 " id="navbar ">
+                <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 " id="navbar " disabled>
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center ">
-                        <div class="input-group input-group-outline ">
-                            <label class="form-label ">Recherche</label>
-                            <input type="text " class="form-control ">
+                        <div class="input-group input-group-outline " disabled>
+                            <label class="form-label " disabled>Recherche</label>
+                            <input type="text" class="form-control ">
                             <div class="input-group-btn">
-                                <button class="btn btn-default bg-gray-500 h-100" type="submit"><i
+                                <button class="btn btn-default bg-gray-500 h-100" type="submit" disabled><i
                                         class="fa fa-search"></i></button>
                             </div>
                         </div>
@@ -121,58 +122,97 @@
                                     {{ Auth::user()->lastname }}</span>
                             </a>
                         </li>
-                    </ul>
+                </div>
+                </a>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <h3 class="ms-5">Ajout de secrétaire</h3>
+        <section>
+            <div class="page-header min-vh-100">
+                <div class="container">
+                    <center>
+                        @if (session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
+                    </center>
+                    <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto ">
+                        <div class="card card-plain">
+                            <div class="card-header">
+                                <h4 class="font-weight-bolder">Enregistré un(e) secrétaire</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action=" {{ route('admin.store') }} " method="POST">
+                                    @csrf
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">
+                                            Nom</label>
+                                        <input type="text" name="nom" class="form-control bg-gray-300"
+                                            style="z-index:1;">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">
+                                            Prenom</label>
+                                        <input type="text" name="prenom" class="form-control bg-gray-300"
+                                            style="z-index:1;">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label text-dark text-weight-bold"
+                                            style="z-index:2;">E_mail</label>
+                                        <input type="email" name="email" class="form-control  bg-gray-300"
+                                            style="z-index:1;">
+                                    </div>
+                                    <input type="hidden" name="role_id" value="2">
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">Mot de
+                                            passe</label>
+                                        <input type="password" name="password" class="form-control  bg-gray-300"
+                                            style="z-index:1;">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="form-label text-dark text-weight-bold"
+                                            style="z-index:2;">Confirmer mot de passe</label>
+                                        <input type="password" name="password" class="form-control  bg-gray-300"
+                                            style="z-index:1;">
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit"
+                                            class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enregistrer</button>
+                                    </div>
+                                </form>
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
             </div>
+            </div>
+        </section>
 
-        </nav>
-        <h3 class="ms-5">Que voulez-vous faire cher Directeur</h3>
+        <!-- End Navbar -->
         <div class="container-fluid py-4">
-            <div class="row min-vh-80 h-100">
-                <div class="col-md-6 d-flex py-5">
-                    <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href="{{ 'gestion' }} ">
-                            <button type="button" class="btn btn-light w-50 h-100">
-                                <span class="badge badge-light"> <img
-                                        src="../assets/img/Add User Group Woman Man_80px.png"
-                                        style="width:150px; height:180px" alt=""></span>
-                                <p>
-                                <h4 class="text-dark font-bold">Gestion des secrétaires</h4>
-                                </p>
-                            </button>
-                        </a>
-                    </div>
-                    <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href="{{ 'espace' }}">
-                            <button type="button" class="btn btn-light w-50 h-100">
-                                <span class="badge badge-light  "> <img src="../assets/img/Graduation Cap_80px.png"
-                                        style="width:150px; height:180px" alt=""></span>
-                                <p>
-                                <h4 class="text-dark font-bold">Espace étudiants</h4>
-                                </p>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <!-- End Navbar -->
-                <div class="container-fluid py-4">
-                    <footer class="footer py-4">
-                        <div class="container-fluid ">
-                            <div class="row align-items-center justify-content-lg-between ">
-                                <div class="col-lg-6 mb-lg-0 mb-4">
-                                    <div class="copyright text-center text-sm text-muted text-lg-start mt-5">
-                                        © Copyright
-                                        <script>
-                                            document.write(new Date().getFullYear())
-                                        </script>, ESI<i class="fa fa-heart "></i>
+            <footer class="footer py-4">
+                <div class="container-fluid ">
+                    <div class="row align-items-center justify-content-lg-between ">
+                        <div class="col-lg-6 mb-lg-0 mb-4">
+                            <div class="copyright text-center text-sm text-muted text-lg-start mt-5">
+                                © Copyright
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>, ESI<i class="fa fa-heart "></i>
 
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </footer>
+                    </div>
                 </div>
+            </footer>
+        </div>
     </main>
 
     <!--   Core JS Files   -->
@@ -180,7 +220,7 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-   
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

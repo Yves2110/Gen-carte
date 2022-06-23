@@ -10,8 +10,7 @@
         Gen-carte
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -24,13 +23,10 @@
 </head>
 
 <body class="g-sidenav-show">
-    <aside
-        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
-        id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
         <div class="sidenav-header">
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-                aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" {{ ('/') }} ">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" {{('/')}} ">
                 <img src="../assets/img/esi.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Accueil</span>
             </a>
@@ -39,7 +35,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ 'admin' }} ">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{('admin')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -47,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href=" {{ 'authentificate' }} ">
+                    <a class="nav-link text-white " href=" {{('authentificate')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -56,7 +52,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href=" {{ '' }} ">
+                    <a class="nav-link text-white " href=" {{('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">notifications</i>
                         </div>
@@ -64,12 +60,11 @@
                     </a>
                 </li>
                 <li class="nav-item mt-3 ">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8 ">Account pages
-                    </h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8 ">Account pages</h6>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href=" {{ 'logout' }} ">
+                    <a class="nav-link text-white " href=" {{('logout')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">logout</i>
                         </div>
@@ -77,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href=" {{ '' }} ">
+                    <a class="nav-link text-white " href=" {{('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">assignment</i>
                         </div>
@@ -89,17 +84,16 @@
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur "
-            data-scroll="true ">
+        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur " data-scroll="true ">
             <div class="container-fluid py-1 px-3 ">
                 <nav aria-label="breadcrumb ">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 ">
-                        <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark "
-                                href="javascript:; ">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/Accueil</li>
+                        <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark " href="javascript:; ">Pages</a></li>
+                        <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/<a href=" {{'admin'}} ">Accueil</a> /Espace Secrétaire</li>
+
                     </ol>
-                    <a href=" {{'admin'}} ">
-                        <h6 class="font-weight-bolder mb-0 ">Accueil</h6>
+                    <a href=" {{'gestion'}} ">
+                        <h6 class="font-weight-bolder mb-0 ">Espace secrétaires</h6>
                     </a>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 " id="navbar ">
@@ -108,50 +102,45 @@
                             <label class="form-label ">Recherche</label>
                             <input type="text " class="form-control ">
                             <div class="input-group-btn">
-                                <button class="btn btn-default bg-gray-500 h-100" type="submit"><i
-                                        class="fa fa-search"></i></button>
+                                <button class="btn btn-default bg-gray-500 h-100" type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
                     <ul class="navbar-nav justify-content-end ">
                         <li class="nav-item d-flex align-items-center ">
-                            <a href="{{ '' }}" class="nav-link text-body font-weight-bold px-0 ">
+                            <a href="{{('')}}" class="nav-link text-body font-weight-bold px-0 ">
                                 <i class="fa fa-user me-sm-1 "></i>
                                 <span class="d-sm-inline d-none ">{{ Auth::user()->firstname }}
                                     {{ Auth::user()->lastname }}</span>
                             </a>
                         </li>
-                    </ul>
-
                 </div>
+                </a>
+                </li>
+                </ul>
+                </li>
+                </ul>
             </div>
-
+            </div>
         </nav>
-        <h3 class="ms-5">Que voulez-vous faire cher Directeur</h3>
+        <h3 class="ms-5">Gestionnaires des secrétaires</h3>
         <div class="container-fluid py-4">
             <div class="row min-vh-80 h-100">
                 <div class="col-md-6 d-flex py-5">
                     <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href="{{ 'gestion' }} ">
+                        <a href=" {{route('admin.create')}} ">
                             <button type="button" class="btn btn-light w-50 h-100">
-                                <span class="badge badge-light"> <img
-                                        src="../assets/img/Add User Group Woman Man_80px.png"
-                                        style="width:150px; height:180px" alt=""></span>
-                                <p>
-                                <h4 class="text-dark font-bold">Gestion des secrétaires</h4>
-                                </p>
-                            </button>
+                           <span class="badge badge-light"> <img src="../assets/img/Add User Male_96px.png" style="width:150px; height:180px" alt=""></span>
+                           <p><h4 class="text-dark font-bold">Ajouté</h4></p>
+                        </button>
                         </a>
                     </div>
                     <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href="{{ 'espace' }}">
+                        <a href=" {{('list')}} ">
                             <button type="button" class="btn btn-light w-50 h-100">
-                                <span class="badge badge-light  "> <img src="../assets/img/Graduation Cap_80px.png"
-                                        style="width:150px; height:180px" alt=""></span>
-                                <p>
-                                <h4 class="text-dark font-bold">Espace étudiants</h4>
-                                </p>
-                            </button>
+                         <span class="badge badge-light"> <img src="../assets/img/List_96px.png" style="width:150px; height:180px"  alt=""></span>
+                         <p><h4 class="text-dark font-bold">Liste</h4></p>
+                      </button>
                         </a>
                     </div>
                 </div>
@@ -180,7 +169,7 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-   
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

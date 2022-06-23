@@ -27,7 +27,7 @@ class AuthController extends Controller
             return 'secretaire';
         } else {
             return back()->with([
-                'message' => 'Identifiants incorrect!!! Reessaigner',
+                'message' => 'Identifiants incorrect!!! Reessayer',
             ]);
         }
     }

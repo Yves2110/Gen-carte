@@ -61,17 +61,17 @@ class AdminController extends Controller
      */
     public function ajout()
     {
-        return view('admin.ajout-etudiant');
+       //
     }
-     /**
-     * Show the student manage for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function etugestion()
-    {
-        return view('admin.gestion_etudiant');
-    }
+    //  /**
+    //  * Show the student manage for creating a new resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function etugestion()
+    // {
+    //     return view('admin.gestion_etudiant');
+    // }
     /**
      * Show the form for creating a new resource.
      *
@@ -111,7 +111,7 @@ class AdminController extends Controller
 
         ]);
         $user->notify(new RegisterSecretary());
-        return $user;
+
         return back()->with('message', 'Enregistrement effectué avec succès!');
     }
 
@@ -135,9 +135,9 @@ class AdminController extends Controller
             "password" =>Hash::make($request->password),
 
         ]);
+        return back()->with('message', 'Enregistrement effectué avec succès!');
         $user->notify(new RegisterSecretary());
         return $user;
-        return back()->with('message', 'Enregistrement effectué avec succès!');
     }
 
     /**

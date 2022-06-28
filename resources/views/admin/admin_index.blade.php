@@ -144,7 +144,7 @@
                         </a>
                     </div>
                     <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href="{{ 'espace' }}">
+                        <a href="{{ route('Space') }}">
                             <button type="button" class="btn btn-light w-50 h-100">
                                 <span class="badge badge-light  "> <img src="../assets/img/Graduation Cap_80px.png"
                                         style="width:150px; height:180px" alt=""></span>
@@ -180,7 +180,7 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-   
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

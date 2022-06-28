@@ -63,7 +63,7 @@
                         <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">
                             <a href=" {{('authentificate')}} ">Authentification</a></li>
                     </ol>
-                    <a href=" {{('espace')}} ">
+                    <a href=" {{('authentificate')}} ">
                         <h6 class="font-weight-bolder mb-0 ">Authentification</h6>
                     </a>
                 </nav>
@@ -145,7 +145,7 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-   
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

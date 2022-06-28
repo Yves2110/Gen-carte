@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ 'admin' }} ">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ route('admin.index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -99,8 +99,8 @@
                                 href=" {{ route('admin.index') }} ">Accueil</a> /Espace Secrétaire</li>
 
                     </ol>
-                    <a href=" {{ 'gestion' }} ">
-                        <h6 class="font-weight-bolder mb-0 ">Espace secrétaires</h6>
+                    <a href=" {{ route('admin') }} ">
+                        <h6 class="font-weight-bolder mb-0">Espace secrétaires</h6>
                     </a>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 " id="navbar " disabled>

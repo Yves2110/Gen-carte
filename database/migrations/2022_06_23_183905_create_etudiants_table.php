@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('email');
             $table->date('date_naissance');
             $table->string('numero_etudiant');
+            $table->string('matricule');
+            $table->string('cycle');
+            $table->string('annee_academique');
             $table->string('nom_prenom_tuteur');
             $table->string('numero_tuteur');
             $table->timestamps();

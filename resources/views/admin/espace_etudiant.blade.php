@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +26,7 @@
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="../Accueil.html">
+            <a class="navbar-brand m-0" href=" {{ route('welcome')}} ">
                 <img src="../assets/img/esi.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Accueil</span>
             </a>
@@ -49,7 +35,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href="../pages/template.html">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ route('admin.index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -57,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/tables.html ">
+                    <a class="nav-link text-white " href=" {{ route('login_index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -66,7 +52,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/notifications.html ">
+                    <a class="nav-link text-white " href=" {{('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">notifications</i>
                         </div>
@@ -78,7 +64,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/sign-in.html ">
+                    <a class="nav-link text-white " href=" {{ route('logout')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">logout</i>
                         </div>
@@ -86,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/sign-up.html ">
+                    <a class="nav-link text-white " href=" {{ ('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">assignment</i>
                         </div>
@@ -104,9 +90,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 ">
                         <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark " href="javascript:; ">Pages</a></li>
                         <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/
-                            <a href="./template.html">Accueil</a>/Espace Etudiants</li>
+                            <a href=" {{route('welcome')}} ">Accueil</a>/Espace Etudiants</li>
                     </ol>
-                    <a href="./template.html">
+                    <a href=" {{route('Space')}} ">
                         <h6 class="font-weight-bolder mb-0 ">Espace Etudiants</h6>
                     </a>
                 </nav>
@@ -141,7 +127,7 @@
             <div class="row min-vh-80 h-100">
                 <div class="col-md-6 d-flex py-5">
                     <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href=" {{('ajout')}} ">
+                        <a href=" {{route('etudiants.create')}} ">
                             <button type="button" class="btn btn-light w-50 h-100">
                            <span class="badge badge-light"> <img src="../assets/img/Add User Male_96px.png" style="width:150px; height:180px" alt=""></span>
                            <p><h4 class="text-dark font-bold">Ajouté</h4></p>
@@ -149,7 +135,7 @@
                         </a>
                     </div>
                     <div class="input-group-btn w-100 h-100  col-md-4">
-                        <a href=" {{('etugestion')}} ">
+                        <a href=" {{route('etudiants.index')}} ">
                             <button type="button" class="btn btn-light w-50 h-100">
                          <span class="badge badge-light"> <img src="../assets/img/Administrative Tools_96px.png" style="width:150px; height:180px"  alt=""></span>
                          <p><h4 class="text-dark font-bold">Gestion</h4></p>
@@ -182,15 +168,6 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

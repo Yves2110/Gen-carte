@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +26,7 @@
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="../Accueil.html">
+            <a class="navbar-brand m-0" href=" {{('/')}} ">
                 <img src="../assets/img/esi.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Accueil</span>
             </a>
@@ -49,7 +35,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href="../pages/template.html">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ route('admin.index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -57,7 +43,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/tables.html ">
+                    <a class="nav-link text-white " href=" {{ route('login_index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -66,7 +52,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/notifications.html ">
+                    <a class="nav-link text-white " href=" {{('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">notifications</i>
                         </div>
@@ -76,16 +62,9 @@
                 <li class="nav-item mt-3 ">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8 ">Account pages</h6>
                 </li>
-                <!-- <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/profile.html ">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
-                            <i class="material-icons opacity-10 ">person</i>
-                        </div>
-                        <span class="nav-link-text ms-1 ">Profile</span>
-                    </a>
-                </li> -->
+
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/sign-in.html ">
+                    <a class="nav-link text-white " href=" {{'logout'}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">logout</i>
                         </div>
@@ -93,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href="../pages/sign-up.html ">
+                    <a class="nav-link text-white " href=" {{('')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">assignment</i>
                         </div>
@@ -111,10 +90,10 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5 ">
                         <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark " href="javascript:; ">Pages</a></li>
                         <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/
-                            <a href="./template.html">Accueil</a>/ <a href="Espace-etudiant.html">Espace Etudiants</a>/Listes des étudiants</li>
+                            <a href=" {{('/')}} ">Accueil</a>/ <a href=" {{('espace')}} ">Espace Etudiants</a>/Listes des étudiants</li>
 
                     </ol>
-                    <a href="./template.html">
+                    <a href=" {{('gestion')}} ">
                         <h6 class="font-weight-bolder mb-0 ">Listes des Etudiants</h6>
                     </a>
                 </nav>
@@ -132,7 +111,8 @@
                         <li class="nav-item d-flex align-items-center ">
                             <a href="{{('')}}" class="nav-link text-body font-weight-bold px-0 ">
                                 <i class="fa fa-user me-sm-1 "></i>
-                                <span class="d-sm-inline d-none ">Profile</span>
+                                <span class="d-sm-inline d-none ">{{ Auth::user()->firstname }}
+                                    {{ Auth::user()->lastname }}</span>
                             </a>
                         </li>
                 </div>
@@ -160,40 +140,78 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Identification</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Numéro</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Enregistré le</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Identification</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder  ps-2">Matricule</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder  ps-2">Année et Cycle</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder  ps-2">Contact</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder  ps-2">Tuteur</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ">Enregistré le</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ">Action</th>
                                             <th class="text-secondary opacity-7"></th>
                                         </tr>
                                     </thead>
+                                    @foreach ($etudiants as $etudiant)
+
                                     <tbody>
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
 
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm"></h6>
-                                                        <p class="text-xs text-secondary mb-0"></p>
+                                                        <h6 class="mb-0 text-sm">
+                                                            {{ $etudiant->nom }}
+                                                            {{ $etudiant->prenom }}
+                                                        </h6>
+                                                        <p class="text-xs text-secondary mb-0">
+                                                            {{ $etudiant->date_naissance }}
+                                                            <br>
+                                                            {{ $etudiant->email }}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0"></p>
-                                                <p class="text-xs text-secondary mb-0"></p>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    {{ $etudiant->matricule }}
+
+                                                </p>
                                             </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-success"></span>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $etudiant->cycle }}
+                                                </p>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    {{ $etudiant->annee_academique }}
+                                                </p>
                                             </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $etudiant->numero_etudiant }}
+                                                </p>
+
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0"></p>
+                                                <p class="badge badge-sm bg-gradient-success">
+                                                    {{ $etudiant->nom_prenom_tuteur }}
+                                                    <br>
+                                                    {{ $etudiant->numero_tuteur }}
+                                                </p>
+                                            </td>
+
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold"></span>
+                                                <span class="text-secondary text-xs font-weight-bold">
+                                                    {{ $etudiant->created_at }}
+                                                </span>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="#" class="btn btn-info">Modifier</a>
-                                                <a href="#" class="btn btn-danger">Supprimer</a>
-                                                <a href="#" class="btn btn-secondary">Télécharger</a>
+                                                <a href=" {{('')}} " class="btn btn-info">Modifier</a>
+                                                <a href=" {{('')}} " class="btn btn-danger">Supprimer</a>
+                                                <a href=" {{('')}} " class="btn btn-secondary">Télécharger</a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -228,15 +246,7 @@
     <script src="../assets/js/core/bootstrap.min.js "></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js "></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js "></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js "></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

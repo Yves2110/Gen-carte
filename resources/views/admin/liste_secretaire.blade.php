@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.3
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +30,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" {{('welcome')}} ">
+            <a class="navbar-brand m-0" href=" {{route('welcome')}} ">
                 <img src="../assets/img/esi.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Accueil</span>
             </a>
@@ -53,7 +39,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{('admin.index')}} ">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{route('admin.index')}} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -111,7 +97,7 @@
                         <li class="breadcrumb-item text-sm "><a class="opacity-5 text-dark "
                                 href="javascript:; ">Pages</a></li>
                         <li class="breadcrumb-item text-sm text-dark active " aria-current="page ">Diecteur/<a
-                                href=" {{('admin.index')}} ">Accueil</a> /Espace Secrétaire</li>
+                                href=" {{route('admin.index')}} ">Accueil</a> /Espace Secrétaire</li>
 
                     </ol>
                     <a href=" {{('gestion')}} ">

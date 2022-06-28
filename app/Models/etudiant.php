@@ -15,6 +15,9 @@ class etudiant extends Model
         'email',
         'date_naissance',
         'numero_etudiant',
+        'matricule',
+        'cycle',
+        'annee_academique',
         'nom_prenom_tuteur',
         'numero_tuteur',
      ];

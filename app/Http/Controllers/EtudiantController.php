@@ -17,7 +17,18 @@ class EtudiantController extends Controller
     public function index()
     {
         $etudiants= etudiant::all();
-        return view('admin.gestion_etudiant', compact('etudiants')); 
+        return view('admin.gestion_etudiant', compact('etudiants'));
+    }
+
+ /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexe()
+    {
+        $etudiants= etudiant::all();
+        return view('admin.liste_etudiant_secretaire', compact('etudiants'));
     }
 
     /**
@@ -63,6 +74,7 @@ class EtudiantController extends Controller
             "annee_academique" =>$request->annee_academique,
             "nom_prenom_tuteur" =>$request->nom_prenom_tuteur,
             "numero_tuteur" =>$request->numero_tuteur,
+            "file" =>$request->file,
 
         ]);
         // $etudiant->notify(new CarteNotification());
@@ -89,7 +101,7 @@ class EtudiantController extends Controller
      */
     public function edit(etudiant $etudiant)
     {
-        //
+        return view('admin.ajout-etudiant', compact('etudiant'));
     }
 
     /**
@@ -101,7 +113,23 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, etudiant $etudiant)
     {
-        //
+        // $etudiants= etudiant::find($etudiant);
+
+           $etudiant->update([
+            "nom" =>$request->nom,
+            "prenom" =>$request->prenom,
+            "email" =>$request->email,
+            "date_naissance" =>$request->date_naissance,
+            "numero_etudiant" =>$request->numero_etudiant,
+            "matricule" =>$request->matricule,
+            "cycle" =>$request->cycle,
+            "annee_academique" =>$request->annee_academique,
+            "nom_prenom_tuteur" =>$request->nom_prenom_tuteur,
+            "numero_tuteur" =>$request->numero_tuteur,
+            "file" =>$request->file,
+        ]);
+        return redirect(route("etudiants.index"))->with ('message', 'Modification effectué avec succès!');
+
     }
 
     /**
@@ -112,6 +140,8 @@ class EtudiantController extends Controller
      */
     public function destroy(etudiant $etudiant)
     {
-        //
+        $etudiants= etudiant::find($etudiant);
+        $etudiant->delete();
+        return redirect("{{route('etudiants.index')}}")->with('message','Suppression effectué avec succès');
     }
 }

@@ -30,7 +30,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" {{ ('/') }} ">
+            <a class="navbar-brand m-0" href=" {{ '/' }} ">
                 <img src="../assets/img/esi.jpg" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold text-white">Accueil</span>
             </a>
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ route('admin.index')}} ">
+                    <a class="nav-link text-white btn bg-gradient-light mt-4 w-80" href=" {{ route('admin.index') }} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">dashboard</i>
                         </div>
@@ -68,7 +68,7 @@
                     </h6>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link text-white " href=" {{ 'logout' }} ">
+                    <a class="nav-link text-white " href=" {{ route('logout') }} ">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <i class="material-icons opacity-10 ">logout</i>
                         </div>
@@ -148,43 +148,48 @@
                                 <h4 class="font-weight-bolder">Enregistré un(e) secrétaire</h4>
                             </div>
                             <div class="card-body">
-                                <form action=" {{ route('admin.store') }} " method="POST">
-                                    @csrf
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">
-                                            Nom</label>
-                                        <input type="text" name="nom" class="form-control bg-gray-300"
-                                            style="z-index:1;">
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">
-                                            Prenom</label>
-                                        <input type="text" name="prenom" class="form-control bg-gray-300"
-                                            style="z-index:1;">
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label text-dark text-weight-bold"
-                                            style="z-index:2;">E_mail</label>
-                                        <input type="email" name="email" class="form-control  bg-gray-300"
-                                            style="z-index:1;">
-                                    </div>
-                                    <input type="hidden" name="role_id" value="2">
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label text-dark text-weight-bold" style="z-index:2;">Mot de
-                                            passe</label>
-                                        <input type="password" name="password" class="form-control  bg-gray-300"
-                                            style="z-index:1;">
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label text-dark text-weight-bold"
-                                            style="z-index:2;">Confirmer mot de passe</label>
-                                        <input type="password" name="password" class="form-control  bg-gray-300"
-                                            style="z-index:1;">
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit"
-                                            class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enregistrer</button>
-                                    </div>
+                                @if (isset($user))
+                                    <form action=" {{ route('admin.update', $user) }} " method="POST">
+                                        @method('PUT')
+                                    @else
+                                        <form action=" {{ route('admin.store') }} " method="POST">
+                                @endif
+                                @csrf
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label text-dark text-weight-bold" style="z-index:2;">
+                                        Nom</label>
+                                    <input type="text" name="nom" class="form-control bg-gray-300"
+                                        style="z-index:1;" value="{{$user ? $user->firstname : old(firstname)}}">
+                                </div>
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label text-dark text-weight-bold" style="z-index:2;">
+                                        Prenom</label>
+                                    <input type="text" name="prenom" class="form-control bg-gray-300"
+                                        style="z-index:1;"  value="{{$user ? $user->lastname : old(lastname)}}">
+                                </div>
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label text-dark text-weight-bold"
+                                        style="z-index:2;">E_mail</label>
+                                    <input type="email" name="email" class="form-control  bg-gray-300"
+                                        style="z-index:1;"  value="{{$user ? $user->email : old(email)}}">
+                                </div>
+                                <input type="hidden" name="role_id" value="2">
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label text-dark text-weight-bold" style="z-index:2;">Mot de
+                                        passe</label>
+                                    <input type="password" name="password" class="form-control  bg-gray-300"
+                                        style="z-index:1;"  value="{{$user ? $user->password : old(password)}}">
+                                </div>
+                                <div class="input-group input-group-outline mb-3">
+                                    <label class="form-label text-dark text-weight-bold" style="z-index:2;">Confirmer
+                                        mot de passe</label>
+                                    <input type="password" name="password" class="form-control  bg-gray-300"
+                                        style="z-index:1;"  value="{{$user ? $user->password : old(password)}}">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit"
+                                        class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Enregistrer</button>
+                                </div>
                                 </form>
                             </div>
 

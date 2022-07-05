@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('annee_academique');
             $table->string('nom_prenom_tuteur');
             $table->string('numero_tuteur');
+             $table->string('file');
             $table->timestamps();
         });
     }

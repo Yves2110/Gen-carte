@@ -63,15 +63,15 @@ class AdminController extends Controller
     {
        //
     }
-    //  /**
-    //  * Show the student manage for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function etugestion()
-    // {
-    //     return view('admin.gestion_etudiant');
-    // }
+     /**
+     * Show the secretary manage for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function secretaire()
+    {
+        return view('admin.secretaire_index');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -157,9 +157,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( User $user)
     {
-        //
+        return view('admin.inscription_secretaire', compact('user'));
     }
 
     /**
@@ -169,9 +169,21 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $id)
     {
-        //
+        $user= User::find($id);
+
+      $user=  User::create([
+            "firstname" =>$request->nom,
+            "lastname" =>$request->prenom,
+            "role_id" =>$request->role_id,
+            "email" =>$request->email,
+            "password" =>Hash::make($request->password),
+
+        ]);
+        $user->notify(new RegisterSecretary());
+
+        return back()->with('message', 'Modification effectué avec succès!');
     }
 
     /**
@@ -182,6 +194,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user= User::find($id);
+        $user->delete();
+        return redirect("{{route('admin.index')}}")->with('message','Suppression effectué avec succès');
     }
 }

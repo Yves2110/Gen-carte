@@ -133,7 +133,11 @@
             </div>
         </nav>
         <h3 class="ms-5">Gestionnaires des secrétaires</h3>
-
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+        {{session()->get('message')}}
+        </div>
+        @endif
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
@@ -195,13 +199,13 @@
                                                     </span>
                                                 </td>
 
-                                                <td class="align-middle">
+                                                <td class=" {{route('admin.edit', $user)}} ">
                                                     <a href="javascript:;"
                                                         class="btn btn-info font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
                                                         Edit
                                                     </a>
-                                                    <a href="javascript:;"
+                                                    <a href=" {{ route('admin.destroy', $user)}} "
                                                         class="btn btn-danger font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
                                                         supprimer

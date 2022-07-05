@@ -24,7 +24,7 @@ class AuthController extends Controller
             return redirect()->route('admin.index');
         } elseif (Auth::attempt($credentials) && Auth::user()->role_id === 2) {
             $request->session()->regenerate();
-            return 'secretaire';
+            return redirect()->route('Secretary_index');
         } else {
             return back()->with([
                 'message' => 'Identifiants incorrect!!! Reessayer',
@@ -39,6 +39,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect(route('login'));
     }
 }
